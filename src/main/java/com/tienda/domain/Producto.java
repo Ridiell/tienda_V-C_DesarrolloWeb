@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Produto")
+@Table(name = "producto")
 public class Producto implements Serializable {
 
     //Version de serializacion 
@@ -14,33 +14,30 @@ public class Producto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_producto;")
+    @Column(name = "id_producto")
     private Long idProducto;
-
-    //private Long idCategoria;
     private String descripcion;
-    private String precio;
     private String detalle;
-    private String existencias;
+    private double precio;
+    private int existencias;
     private String rutaImagen;
     private boolean activo;
 
     @ManyToOne
-    @JoinColumn(name="id_categoria")
+    @JoinColumn(name = "id_categoria")
     private Categoria categoria;
-    
-    public Producto() {
 
+    public Producto() {
     }
 
-    public Producto(String descripcion, String precio, String detalle, String existencias, String rutaImagen, boolean activo) {
-        
+    public Producto(String descripcion, String detalle, double precio, int existencias, String rutaImagen, boolean activo, Categoria categoria) {
         this.descripcion = descripcion;
-        this.precio = precio;
         this.detalle = detalle;
+        this.precio = precio;
         this.existencias = existencias;
         this.rutaImagen = rutaImagen;
         this.activo = activo;
+        this.categoria = categoria;
     }
 
 }

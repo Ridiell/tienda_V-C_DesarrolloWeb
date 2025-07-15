@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
 
-    
+     //inyeccion
     @Autowired
     private CategoriaDao categoriaDao;
 
